@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Afnan\'s Android Labs</string>
+    <string name="hello_message">ওহে বিশ্ব</string>
+    <string name="button_message">আমি একটি বোতাম</string>
+</resources>
