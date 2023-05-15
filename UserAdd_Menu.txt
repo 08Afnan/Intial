@@ -1,0 +1,109 @@
+#!/bin/bash
+# FileName: myscript
+# Date: 26th March 2023
+# Author: Afnan Islam
+# Student ID: 041082073
+# Seamester: Winter 2023
+# Presenting a manu to user where they can
+# choose an option to  add, or delete user account,
+# change initial and supplementary group, default login shell
+
+display_menu(){
+    clear 
+    echo "A. Create User Account "
+    echo "B. Delete User Account"
+    echo "C. Change Supplementary Group for a User Account"
+    echo "D. Change Initial Group for a User Account"
+    echo "E. Change default login shell for a User Account"
+    echo "F. Change account expiration date for a User Accoun"
+    echo "Q. Quit"
+    echo -n "Select A,B,C,D,E,F,Q:"
+}
+
+add_user(){
+	read -p 'Username: ' username
+        read -p 'Home directory: ' homedir
+	read -p 'Default login shell: ' defaultshell
+	sudo useradd $username -d $homedir -s $defaultshell -m 
+        echo "user $username created"
+	
+}
+
+delete_user(){
+      read -p 'Username: ' username
+      sudo userdel -r $username
+      echo "user $username deleted"
+}
+
+
+exp_date(){
+        reap -p 'expirydate: ' expirydate
+	sudo chage -E $expirydate
+	echo "expiry date $expirydate changed"
+
+}
+
+
+sup_group(){
+         read -p 'username: ' username 
+	 read -p 'group_name: ' group_name
+	 sudo usermod -a -G $group_name $username
+
+}
+
+in_log(){ 
+	read -p 'username: ' username
+        read -p 'Group_name: ' group_name
+	usermod -g $group_name $username	
+} 
+
+log_shell(){
+       read -p 'username: ' username 
+       read -p 'shellname: ' shellname
+       usermod -s $shellname $username
+
+}
+
+
+choice=n
+
+while [ $choice != "Q" ] && [ $choice != "q" ]
+do
+        display_menu
+	read choice 
+
+if [ $choice = 'A' ] || [ $choice = 'a' ]
+then 
+	add_user
+
+elif [ $choice = 'B' ] || [ $choice = 'b' ]
+then  
+       delete_user
+
+elif [ $choice = 'C' ] || [ $choice = 'c' ]
+then
+	sup_group
+
+elif [ $choice = 'D' ] || [ $choice = 'd' ]
+then
+	in_log
+
+elif [ $choice = 'E' ] || [ $choice = 'e' ]
+then 
+	log_shell
+
+
+elif [ $choice = 'F' ] || [ $choice = 'f' ]
+then 
+	exp_date
+
+elif [ $choice != 'Q' ] && [ $choice != 'q' ]
+then 	
+     echo "To run again press A,B,C,E,F or [Q]iut"
+     sleep 3
+
+fi
+
+done
+ 
+# eof: myscript
