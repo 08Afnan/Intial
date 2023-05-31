@@ -3,8 +3,8 @@
     <string name="app_name">Afnan\'s Android Labs</string>
     <string name="hello_message">ওহে বিশ্ব</string>
     <string name="button_message">আমি একটি বোতাম</string>
-    <string name="button1">বোতাম 1</string>
+    <string name="button1">বোতাম ১</string>
     <string name="button2">বোতাম 2</string>
-    <string name="button3">বোতাম 3</string>
+    <string name="button3">বোতাম ৩</string>
     <string name="spin_message">স্পিন পতাকা</string>
 </resources>
