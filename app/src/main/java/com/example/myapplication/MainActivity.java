@@ -1,6 +1,6 @@
 package com.example.myapplication;
 
-import static java.lang.Character.isDigit;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 /**
  * In this lab I am validating the password if it includes at least one uppercase character, one lowercase character
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView tv = findViewById(R.id.textView);
+        //TextView tv = findViewById(R.id.textView);
         EditText et = findViewById(R.id.editTextText);
         Button btn = findViewById(R.id.button);
 
