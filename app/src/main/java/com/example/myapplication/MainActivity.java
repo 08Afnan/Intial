@@ -1,15 +1,10 @@
 package com.example.myapplication;
+
 import android.content.Intent;
-//import static android.icu.lang.UProperty.AGE;
+import android.os.Bundle;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-
-
-import android.net.Uri;
-import android.os.Bundle;
-//import android.provider.MediaStore;
-import android.util.Log;
 
 import com.example.myapplication.databinding.ActivityMainBinding;
 
@@ -17,8 +12,8 @@ import com.example.myapplication.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
- private  String TAG = "MainActivity";
- protected ActivityMainBinding binding;
+    private  String TAG = "MainActivity";
+    protected ActivityMainBinding binding;
 
 
     @Override
@@ -61,9 +56,9 @@ public class MainActivity extends AppCompatActivity {
             startActivity( nextPage);
 
         });
-           // Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        // Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
-           // Log.e(TAG, "you clicked the button");
+        // Log.e(TAG, "you clicked the button");
 
 
 
@@ -73,8 +68,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-            //goes another page
-           // startActivity(cameraIntent); //carries all the data to the next page
+        //goes another page
+        // startActivity(cameraIntent); //carries all the data to the next page
 
 
 
