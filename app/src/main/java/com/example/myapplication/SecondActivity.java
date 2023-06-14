@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -36,6 +37,19 @@ public class SecondActivity extends AppCompatActivity {
         // Loads the XML file /res/layout/activity_second.xml
         setContentView(binding.getRoot());
 
+
+        binding.goBackButton.setOnClickListener((v) -> {
+            SharedPreferences prefer = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefer.edit();
+            editor.putString("phoneNumber", binding.editTextPhone.getText().toString());
+            editor.apply();
+
+            Intent intent = new Intent(Intent.ACTION_DIAL);
+            intent.setData(Uri.parse("tel:" + binding.editTextPhone.getText().toString()));
+            startActivity(intent);
+        });
+
+
         File file = new File(getFilesDir(), "Picture.png");
 
 
@@ -45,6 +59,8 @@ public class SecondActivity extends AppCompatActivity {
         }
 
 
+        SharedPreferences prefer = getSharedPreferences("MyData", Context.MODE_PRIVATE);
+        binding.editTextPhone.setText(prefer.getString("phoneNumber", ""));
 
 
         Intent nextPage = getIntent();  //return the Intent that got us here
@@ -104,7 +120,7 @@ public class SecondActivity extends AppCompatActivity {
 
 
                         }
-                        ;
+
                     }
                 });
 
